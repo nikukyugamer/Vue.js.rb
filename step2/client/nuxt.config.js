@@ -20,6 +20,10 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
+  modules: [
+    '@nuxtjs/dotenv',
+  ],
+
   loading: { color: '#3B8070' },
   /*
   ** Build configuration

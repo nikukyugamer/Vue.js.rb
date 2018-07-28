@@ -14,14 +14,19 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  router: {
+    middleware: 'auth'
+  },
   plugins: [
-    '~/plugins/element-ui'
+    '~/plugins/element-ui',
+    '~/plugins/axios'
   ],
   /*
   ** Customize the progress bar color
   */
   modules: [
     '@nuxtjs/dotenv',
+    '@nuxtjs/axios'
   ],
 
   loading: { color: '#3B8070' },

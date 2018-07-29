@@ -2,7 +2,7 @@
 el-container.app
   el-header.app-header
     TopNav
-  el-main
+  el-main.app-main-container
     nuxt
 </template>
 <script>
@@ -28,5 +28,6 @@ html, body
   padding: 0
   .app-header
     padding: 0
-
+  .app-main-container
+    overflow: visible
 </style>

@@ -38,7 +38,7 @@ export default {
       });
     },
     selectGroup(groupId) {
-      console.log(groupId)
+      this.$store.dispatch('group/selectGroup', { groupId: groupId })
     }
   },
   mounted() {

@@ -1,10 +1,14 @@
 export const state = () => ({
-  groups: []
+  groups: [],
+  currentGroup: null
 })
 
 export const mutations = {
   SET_GROUPS: function (state, groups) {
     state.groups = groups
+  },
+  SET_CURRENT_GROUP: function (state, currentGroup) {
+    state.currentGroup = currentGroup
   }
 }
 
@@ -20,6 +24,15 @@ export const actions = {
   createGroup({ commit }, { name }) {
     return new Promise((resolve, reject) => {
       this.$axios.post('/groups',{ name: name }).then(({ data })=> {
+        resolve(data)
+      }).catch(err => reject(err))
+    })
+  },
+  selectGroup({ commit, dispatch, state }, { groupId }) {
+    return new Promise((resolve, reject) => {
+      let group = state.groups.find( (element,key) => { return element.id == groupId } )
+      commit('SET_CURRENT_GROUP', group)
+      dispatch('article/fetchArticles', { groupId: group.id }, { root: true }).then((data)=> {
         resolve(data)
       }).catch(err => reject(err))
     })

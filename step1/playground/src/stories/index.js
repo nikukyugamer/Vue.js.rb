@@ -2,6 +2,7 @@ import Vue from "vue";
 import { storiesOf } from "@storybook/vue";
 import MyButton from "./Button.vue";
 import MyState from "./State.vue";
+import MyMonsters from "./Monsters.vue";
 
 storiesOf("Button", module)
   .add("first button", () => ({
@@ -14,3 +15,8 @@ storiesOf("1.3", module)
     components: { MyState },
     template: '<my-state></my-state>'
   }));
+  storiesOf("1.4", module)
+    .add("monsters", () => ({
+      components: { MyMonsters },
+      template: '<my-monsters></my-monsters>'
+    }));

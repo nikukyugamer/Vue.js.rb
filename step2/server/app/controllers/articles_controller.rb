@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :update, :destroy]
-
+  before_action :set_group
   # GET /articles
   def index
-    @articles = Article.all
+    @articles = @group.articles.order(updated_at: :desc)
 
     render json: @articles
   end
@@ -15,10 +15,10 @@ class ArticlesController < ApplicationController
 
   # POST /articles
   def create
-    @article = Article.new(article_params)
-
+    @article = @group.articles.new(article_params)
+    @article.user = @current_user
     if @article.save
-      render json: @article, status: :created, location: @article
+      render json: @article, status: :created
     else
       render json: @article.errors, status: :unprocessable_entity
     end
@@ -39,6 +39,10 @@ class ArticlesController < ApplicationController
   end
 
   private
+    def set_group
+      @group = Group.find(params[:group_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])

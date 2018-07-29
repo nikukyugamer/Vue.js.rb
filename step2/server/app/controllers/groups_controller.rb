@@ -15,8 +15,7 @@ class GroupsController < ApplicationController
 
   # POST /groups
   def create
-    @group = Group.new(group_params)
-
+    @group = @current_user.groups.new(group_params)
     if @group.save
       render json: @group, status: :created, location: @group
     else

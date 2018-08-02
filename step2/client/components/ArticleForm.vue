@@ -1,13 +1,24 @@
 <template lang='pug'>
-el-form.article-form(:model="articleForm")
-  el-form-item
-    el-input(v-model="articleForm.body" type="textarea")
-  el-form-item
-    el-button.submit-button(type='primary' @click.native='createArticle') 投稿
+.card
+  el-tabs(type="border-card" stretch)
+    el-tab-pane(label="編集")
+      el-form.article-form(:model="articleForm")
+        el-form-item
+          el-input(v-model="articleForm.body" type="textarea" :rows="4")
+        el-form-item
+          el-button.submit-button(type='primary' @click.native='createArticle') 投稿
+    el-tab-pane(label="プレビュー")
+      markdown(:source='articleForm.body')
+
 </template>
 <script>
 import { mapState } from 'vuex'
+import Markdown from '~/components/Markdown.vue'
+
 export default {
+  components: {
+    Markdown
+  },
   data() {
     return {
       articleForm: {

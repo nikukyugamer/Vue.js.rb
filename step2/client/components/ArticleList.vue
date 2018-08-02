@@ -2,11 +2,16 @@
 .article-list
   .article-items
     el-card.article-item(v-for="article in articles" :key="article.id" shadow="never")
-      span {{article.body}}
+      markdown {{article.body}}
 </template>
 <script>
 import { mapState } from 'vuex'
+import Markdown from '~/components/Markdown.vue'
+
 export default {
+  components: {
+    Markdown
+  },
   computed: {
     ...mapState({
       articles: state => state.article.articles

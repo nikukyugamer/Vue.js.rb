@@ -19,7 +19,8 @@ module.exports = {
   },
   plugins: [
     '~/plugins/element-ui',
-    '~/plugins/axios'
+    '~/plugins/axios',
+    { src: '~/plugins/localStorage.js', ssr: false }
   ],
   /*
   ** Customize the progress bar color

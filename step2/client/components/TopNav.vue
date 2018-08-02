@@ -7,7 +7,7 @@
       span {{currentUser.name}}
       i.el-icon-arrow-down.el-icon--right
     el-dropdown-menu(slot="dropdown")
-      el-dropdown-item(@click="logout") ログアウト
+      el-dropdown-item(@click.native="logout") ログアウト
 </template>
 <script>
 import TopNav from '~/components/TopNav.vue'
@@ -23,7 +23,9 @@ export default {
   },
   methods: {
     logout(){
-      // TODO
+      this.$store.dispatch('user/logout').then(()=>{
+        location.reload()
+      })
     }
   }
 }

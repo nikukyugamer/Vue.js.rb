@@ -16,6 +16,12 @@ export const actions = {
         resolve(data)
       }).catch(err => reject(err))
     })
+  },
+  logout({ commit }) {
+    return new Promise((resolve, reject) => {
+      commit('SET_USER', null)
+      resolve(null)
+    })
   }
 }
 export const getters = {

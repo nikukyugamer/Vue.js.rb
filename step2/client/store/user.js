@@ -13,6 +13,7 @@ export const actions = {
     return new Promise((resolve, reject) => {
       this.$axios.post('/sessions', { name }).then(({ data })=> {
         commit('SET_USER', data)
+        this.$axios.setToken(data.access_token, 'Bearer')
         resolve(data)
       }).catch(err => reject(err))
     })

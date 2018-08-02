@@ -17,6 +17,7 @@
     "@nuxtjs/dotenv": "^1.1.1",
     "element-ui": "^2.4.5",
     "nuxt": "^1.0.0",
+    "vue-markdown": "^2.2.4",
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {

@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_180625) do
     t.string "name"
     t.string "image_url"
     t.string "access_token"
-    t.text "profile"
+    t.text "biography"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

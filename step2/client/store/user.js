@@ -23,6 +23,14 @@ export const actions = {
       commit('SET_USER', null)
       resolve(null)
     })
+  },
+  updateProfile({ commit }, { biography }) {
+    return new Promise((resolve, reject) => {
+      this.$axios.put('/profile', { biography }).then(({ data })=> {
+        commit('SET_USER', data)
+        resolve(data)
+      }).catch(err => reject(err))
+    })
   }
 }
 export const getters = {

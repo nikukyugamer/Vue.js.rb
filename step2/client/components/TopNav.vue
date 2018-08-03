@@ -1,12 +1,13 @@
 <template lang='pug'>
 .top-nav
-  span.title demo_app
+  nuxt-link.title(to="/") demo_app
   el-dropdown.user-dropdown(trigger="click" v-if="currentUser")
     el-button.el-dropdown-link(type="text")
       img.avatar(:src="currentUser.image_url")
       span {{currentUser.name}}
       i.el-icon-arrow-down.el-icon--right
     el-dropdown-menu(slot="dropdown")
+      el-dropdown-item(@click.native="profile") プロフィール
       el-dropdown-item(@click.native="logout") ログアウト
 </template>
 <script>
@@ -26,6 +27,9 @@ export default {
       this.$store.dispatch('user/logout').then(()=>{
         location.reload()
       })
+    },
+    profile(){
+      this.$router.push('/profile')
     }
   }
 }
@@ -43,6 +47,8 @@ export default {
     font-size: 20px
     font-weight: bold
     color: #666
+    text-decoration: none
+
   .user-dropdown
     position: relative
     float: right

@@ -8,6 +8,8 @@ import MyState from "./State.vue";
 import MyMonsters from "./Monsters.vue";
 import MyArticleList from "./ArticleList.vue";
 import MyPost from "./Post.vue";
+import MyForm from "./MyForm.vue";
+
 
 storiesOf("Button", module)
   .add("first button", () => ({
@@ -29,6 +31,12 @@ storiesOf("1.5", module)
   .add("article-list", () => ({
     components: { MyArticleList },
     template: '<my-article-list></my-article-list>'
+  }));
+
+storiesOf("1.6", module)
+  .add("my-form", () => ({
+    components: { MyForm },
+    template: '<my-form></my-form>'
   }));
 storiesOf("1.7", module)
   .add("post", () => ({

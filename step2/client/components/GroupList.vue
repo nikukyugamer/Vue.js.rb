@@ -21,7 +21,6 @@
     span.dialog-footer(slot="footer")
       el-button(@click="dialogVisible = false") キャンセル
       el-button(type="primary", @click="createGroup") 作成
-
 </template>
 
 <script>
@@ -32,9 +31,6 @@ export default {
       dialogVisible: false,
       groupForm: {
         name: '',
-      },
-      fooo: {
-        color: 'red'
       }
     };
   },

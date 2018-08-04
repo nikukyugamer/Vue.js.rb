@@ -34,6 +34,7 @@ export default {
   methods: {
     createArticle() {
       this.$store.dispatch('article/createArticle', { groupId: this.currentGroup.id, body: this.articleForm.body }).then((data) => {
+        this.articleForm.body = ''
         this.$store.dispatch('article/fetchArticles', { groupId: this.currentGroup.id })
       });
     }

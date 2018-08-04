@@ -2,7 +2,17 @@
 .group-list
   .group-items
     el-card.group-item(v-for="group in groups" :key="group.id" @click.native="selectGroup(group.id)" shadow="hover")
-      span {{group.name}}
+      <div v-if="currentGroup === null">
+        span {{group.name}}
+      </div>
+      <div v-else>
+        <div v-if="currentGroup.name === group.name">
+          <div v-bind:style="{ color: 'red' }">{{group.name}}</div>
+        </div>
+        <div v-else>
+          span {{group.name}}
+        </div>
+      </div>
   el-button(style="width: 100%;", type="default", @click="dialogVisible = true") 新規グループ作成
   el-dialog(title="グループ作成", width="30%", :visible.sync="dialogVisible")
     el-form(:label-position="'top'", :model="groupForm" ref="groupForm")
@@ -11,7 +21,9 @@
     span.dialog-footer(slot="footer")
       el-button(@click="dialogVisible = false") キャンセル
       el-button(type="primary", @click="createGroup") 作成
+
 </template>
+
 <script>
 import { mapState } from 'vuex'
 export default {
@@ -19,13 +31,17 @@ export default {
     return {
       dialogVisible: false,
       groupForm: {
-        name: ''
+        name: '',
+      },
+      fooo: {
+        color: 'red'
       }
     };
   },
   computed: {
     ...mapState({
-      groups: state => state.group.groups
+      groups: state => state.group.groups,
+      currentGroup: state => state.group.currentGroup
     })
   },
   methods: {

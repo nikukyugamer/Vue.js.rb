@@ -31,6 +31,7 @@ export default {
   methods: {
     createGroup() {
       this.$store.dispatch('group/createGroup', this.groupForm).then((data) => {
+        this.groupForm.name = ''
         this.$store.dispatch('group/fetchGroups').then((data) => {
           this.dialogVisible = false
           this.$refs['groupForm'].resetFields()

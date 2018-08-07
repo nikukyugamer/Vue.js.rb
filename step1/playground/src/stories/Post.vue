@@ -18,7 +18,7 @@ export default {
     }
   },
   created() {
-    this.createdAt = new Date(new Date() - 12 * 3600 * 1000)
+    this.createdAt = new Date(new Date() - 24 * 15 * 3600 * 1000)
   }
 };
 </script>

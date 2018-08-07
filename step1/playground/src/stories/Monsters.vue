@@ -1,16 +1,18 @@
 <template>
-<div>
-  <input type='text' v-model='monsterForm.name'>
-  <button @click="addMonster">追加</button>
-  <span>{{monsterForm.name}}</span>
-  <ul>
-    <li v-for="monster in monsters">
-      <span>{{`${monster.name} HP.${monster.hp}`}}</span>
-    </li>
-  </ul>
-
-</div>
+  <div>
+    <input type='text' v-bind:value='monsterForm.name'>
+    <button @click="addMonster">追加</button>
+    <span>{{monsterForm.name}}</span>
+    <ul>
+      <li v-for="monster in monsters">
+        <span>{{`${monster.name} HP.${monster.hp}`}}</span>
+      </li>
+    </ul>
+  </div>
 </template>
+
+<!-- v-bind:value は単方向バインディング -->
+<!-- すなわち、<script> -> <template> -->
 
 <script>
 import Vue from "vue";
@@ -35,7 +37,7 @@ export default {
         }
       )
 
-      this.monsterForm.name = ''
+      this.monsterForm.name = 'ねこ'
       // ↓でも良い
       // Vue.set(this.monsterForm, 'name', '')
     }

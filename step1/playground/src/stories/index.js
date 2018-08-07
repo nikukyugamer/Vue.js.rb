@@ -10,7 +10,6 @@ import MyArticleList from "./ArticleList.vue";
 import MyPost from "./Post.vue";
 import MyForm from "./MyForm.vue";
 
-
 storiesOf("Button", module)
   .add("first button", () => ({
     components: { MyButton },
@@ -22,11 +21,13 @@ storiesOf("1.3", module)
     components: { MyState },
     template: '<my-state></my-state>'
   }));
+
 storiesOf("1.4", module)
   .add("monsters", () => ({
     components: { MyMonsters },
     template: '<my-monsters></my-monsters>'
   }));
+
 storiesOf("1.5", module)
   .add("article-list", () => ({
     components: { MyArticleList },

@@ -1,5 +1,8 @@
 <template>
-  <span>{{text}}</span>
+  <div class="state-class">
+    <span style="font-size: 48px;">{{text}}</span>
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -10,7 +13,11 @@ export default {
     }
   },
   created() {
-    this.text = 'created'
+    this.text = 'created!!!! by created()'
   }
 };
 </script>
+
+<my-state>
+  This could be e.g. documentation for the component.
+</my-state>
